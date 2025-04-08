@@ -31,6 +31,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.pointer.motionEventSpy
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.tooling.preview.Preview
@@ -39,6 +40,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.adriansafariapp.navigation.ROUTE_LOGIN
 
 @Composable
 fun registerscreen(navController: NavHostController) {
@@ -66,7 +68,7 @@ fun registerscreen(navController: NavHostController) {
             shape = RoundedCornerShape(20. dp),
             modifier= Modifier.padding(16.dp)
         )
-        Spacer(modifier = Modifier.height(50. dp))
+        Spacer(modifier = Modifier.height(25. dp))
         OutlinedTextField(value =lname,
             onValueChange = {lname=it},
             label = {Text(text = "Enter Last Name",
@@ -77,7 +79,7 @@ fun registerscreen(navController: NavHostController) {
             modifier= Modifier.padding(16.dp)
         )
 
-        Spacer(modifier = Modifier.height(50. dp))
+        Spacer(modifier = Modifier.height(25. dp))
         OutlinedTextField(value =email,
             onValueChange = {email=it},
             label = {Text(text = "Enter Email",
@@ -87,7 +89,7 @@ fun registerscreen(navController: NavHostController) {
             shape = RoundedCornerShape(20. dp),
             modifier= Modifier.padding(16.dp)
         )
-        Spacer(modifier = Modifier.height(50. dp))
+        Spacer(modifier = Modifier.height(25. dp))
         OutlinedTextField(value =password,
             onValueChange = {password=it},
             label = {Text(text = "Enter Password",
@@ -97,7 +99,7 @@ fun registerscreen(navController: NavHostController) {
             shape = RoundedCornerShape(20. dp),
             modifier= Modifier.padding(16.dp)
         )
-        Spacer(modifier = Modifier.height(20. dp))
+        Spacer(modifier = Modifier.height(25. dp))
         Button(onClick = {/*TODO*/},
             modifier = Modifier.width(300.dp),
             colors = ButtonDefaults.buttonColors(containerColor = Color.Green)) {
@@ -106,6 +108,12 @@ fun registerscreen(navController: NavHostController) {
                 fontFamily = FontFamily.Monospace,
                 )
         }
+        Spacer(Modifier.height(10.dp))
+        Text(text = "Have an account?"+
+        "Click here to login",
+            fontSize =20.sp,
+            fontFamily = FontFamily.Monospace,
+            modifier = Modifier.clickable{navController.navigate(ROUTE_LOGIN)})
     }
 
 }

@@ -1,6 +1,7 @@
 package com.adriansafariapp.ui.theme.screens.login
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
@@ -35,6 +36,7 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.adriansafariapp.navigation.ROUTE_REGISTER
 
 @Composable
 fun loginscreen(navController: NavHostController) {
@@ -76,6 +78,12 @@ fun loginscreen(navController: NavHostController) {
                 fontSize = 30.sp,
                 fontFamily = FontFamily.Monospace)
         }
+        Spacer(modifier = Modifier.height(10.dp))
+        Text(text="Don't have an account?"+
+                "Click here to sign up",
+            fontSize = 10.sp,
+            fontFamily = FontFamily.Monospace,
+            modifier = Modifier.clickable{navController.navigate(ROUTE_REGISTER)})
     }
 
 }

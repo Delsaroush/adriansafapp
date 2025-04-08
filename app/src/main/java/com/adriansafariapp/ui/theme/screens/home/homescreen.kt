@@ -26,6 +26,7 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.adriansafariapp.R
+import com.adriansafariapp.navigation.ROUTE_DASHBOARD
 import com.adriansafariapp.navigation.ROUTE_LOGIN
 import com.adriansafariapp.navigation.ROUTE_REGISTER
 import com.adriansafariapp.ui.theme.screens.login.loginscreen
@@ -47,7 +48,7 @@ fun homescreen(navController: NavHostController) {
         contentDescription = "sarousch",
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200. dp))
+                .height(200.dp))
         Text("The app is named after Sarousch a narcissistic, " +
                 "uncompromising, presumptuous, and completely in love with himself," +
                 " he is seen admiring his reflection in the mirror and even says " +
@@ -68,16 +69,22 @@ fun homescreen(navController: NavHostController) {
             modifier = Modifier.width(300 .dp)) {
             Text(text = "Register",
                 fontSize = 30. sp)
+
         }
-        
-    }
+        Spacer(modifier = Modifier.height(40. dp))
+        Button(onClick = {navController.navigate(ROUTE_DASHBOARD)},
+            modifier = Modifier.width(300 .dp)) {
+            Text(text = "Dashboard",
+                fontSize = 30. sp)
+
+        }
 
 
 }
 
-@Preview(showBackground = true)
-@Composable
-private fun homepreview() {
-    homescreen(rememberNavController())
-
+    @Preview
+    @Composable
+    fun homepreview() {
+        homescreen(navController)
+    }
 }
